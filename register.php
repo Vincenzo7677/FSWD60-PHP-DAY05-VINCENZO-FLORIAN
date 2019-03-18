@@ -90,6 +90,9 @@ if ( isset($_POST['btn-signup']) ) {
 
 
 }
+
+$name = "";
+$email="";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -139,7 +142,7 @@ if ( isset($_POST['btn-signup']) ) {
 				      	}
 				     ?>
 					<div class="wrap-input100 validate-input" data-validate = "Name is required">
-						<input class="input100" type="text" name="name" placeholder="Name" value="<?php echo $name; ?>">
+						<input class="input100" type="text" name="name" placeholder="Name" value="<?php echo $name;?>">
 						<span class="text-danger"><?php echo $nameError; ?></span>
 
 						<span class="focus-input100-1"></span>
