@@ -17,13 +17,9 @@ if(isset($_GET["id"])){
 	$id = $_GET["id"];
 	$fk_user = $_SESSION["user"];
 
-	echo "<form method='post'><input type='date' name='td'><input type='date' name='bd'><input type='submit' name='submitbook'> </form>";
-
-	if(isset($_POST["submitbook"])){
-		$takedate= $_POST["td"];
-		$backdate= $_POST["bd"];
-
-		$sql = "insert into booking (TakeDate ,	BackDate 	,CarId 	,userId) values ('$takedate','$backdate',$id,$fk_user)";
+	if(isset($_GET["delete"])){
+		
+		$sql = "DELETE FROM car WHERE CarId=$id";
 		mysqli_query($conn,$sql);
 	}
 
@@ -44,7 +40,14 @@ if(isset($_GET["id"])){
    <a href="logout.php?logout"><button type="" class="btn btn-danger">Sign Out</button></a>
 
 </div>
+<?php 
+	if(isset($_GET["rec"])){
+		$id = $_GET["id"];
+		echo "are you sure you want to delete it?<br>
+		<a href='home.php?id=".$id."&delete' class='btn btn-primary'>Delete</a>";
+	}
 
+ ?>
 	<div class="container">
 		  <h2>All cars</h2>
 				<div class="row">
@@ -62,7 +65,7 @@ if(isset($_GET["id"])){
 					   		 	<h5 class='card-title'>".$row['Model']." ".$row['Type']."
 					   		 	</h5>
 			    			 	<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-			    			 	<a href='home.php?id=".$row['CarId']."' class='btn btn-primary'>Delete</a>
+			    			 	<a href='home.php?id=".$row['CarId']."&rec' class='btn btn-primary'>Delete</a>
 			    			 </div>
 							 </div></div>";
 					   		 }
