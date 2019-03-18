@@ -18,7 +18,7 @@ if(isset($_GET["id"])){
 	$fk_user = $_SESSION["user"];
 
 	if(isset($_GET["delete"])){
-		
+		echo "You have successfully deleted this";
 		$sql = "DELETE FROM car WHERE CarId=$id";
 		mysqli_query($conn,$sql);
 	}
@@ -51,16 +51,16 @@ if(isset($_GET["id"])){
 	<div class="container">
 		  <h2>All cars</h2>
 				<div class="row">
-		
+					<div class="card-group">
 			    	<?php
-				        $sql = "SELECT image, Model, Type, CarId FROM car";
+				        $sql = "SELECT images, Model, Type, CarId FROM car";
 						$result = $conn->query($sql);
 							if ($result->num_rows > 0) {
 					   		 while($row = $result->fetch_assoc()) {
 					   		 echo
 					   		 "<div class='col-3 pb-4'>
-					   		 <div class='card'>
-					   		 <img class='card-img-top' src='".$row['image']."' alt='Card image cap'>
+					   		 <div class='card h-100'>
+					   		 <img class='card-img-top' src='".$row['images']."' alt='Card image cap'>
 					   		 <div class='card-body'>
 					   		 	<h5 class='card-title'>".$row['Model']." ".$row['Type']."
 					   		 	</h5>
@@ -71,6 +71,7 @@ if(isset($_GET["id"])){
 					   		 }
 						}
 					?>
+				</div>
 		</div>
 	</div>
 	   
