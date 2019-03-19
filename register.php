@@ -6,11 +6,6 @@ if( isset($_SESSION['user'])!="" ){ //session to make global variables accessabl
 }
 include_once 'dbconnect.php';
 $error = false;
-$nameError="";
-$emailError="";
-$passError="";
-$name="";
-$email="";
 
 if ( isset($_POST['btn-signup']) ) {
  
@@ -91,8 +86,12 @@ if ( isset($_POST['btn-signup']) ) {
 
 }
 
-$name = "";
+$nameError="";
+$emailError="";
+$passError="";
+$name="";
 $email="";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
