@@ -51,23 +51,22 @@ if(isset($_GET["id"])){
 	<div class="container">
 		  <h2>All cars</h2>
 				<div class="row">
-					<div class="card-group">
+					<div class="card-deck">
 			    	<?php
 				        $sql = "SELECT images, Model, Type, CarId FROM car";
 						$result = $conn->query($sql);
 							if ($result->num_rows > 0) {
 					   		 while($row = $result->fetch_assoc()) {
 					   		 echo
-					   		 "<div class='col-3 pb-4'>
-					   		 <div class='card h-100'>
-					   		 <img class='card-img-top' src='".$row['images']."' alt='Card image cap'>
-					   		 <div class='card-body d-flex flex-column'>
-					   		 	<h5 class='card-title'>".$row['Model']." ".$row['Type']."
-					   		 	</h5>
-			    			 	<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the cards content.</p>
-			    			 	<a href='home.php?id=".$row['CarId']."&rec' class='btn btn-primary mt-auto'>Delete</a>
-			    			 </div>
-							 </div></div>";
+					   		 "<div class='card h-100'>
+						   		 <img class='card-img-top' src='".$row['images']."' alt='Card image cap'>
+						   		 <div class='card-body d-flex flex-column'>
+						   		 	<h5 class='card-title'>".$row['Model']." ".$row['Type']."
+						   		 	</h5>
+				    			 	<p class='card-text'>Some quick example text to build on the card title and make up the bulk of the cards content.</p>
+				    			 	<a href='home.php?id=".$row['CarId']."&rec' class='btn btn-primary mt-auto'>Delete</a>
+				    			 </div>
+			    			 </div>";
 					   		 }
 						}
 					?>
